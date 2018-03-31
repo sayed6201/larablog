@@ -11,13 +11,23 @@
 |
 */
 
+use App\Photo;
+use App\User;
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('role/user',function (){
-    $user=App\Role::findOrFail(1)->user;
-    return $user;
-});
+Route::get('/home', 'HomeController@index');
+Route::auth();
 
-Route::get('admin/users','AdminUsersController@index');
+//routes for admin
+Route::group( ['middleware'=>'admin'],function (){
+    Route::get('admin/users','AdminUsersController@index');
+    Route::get('admin/users/create','AdminUsersController@create');
+    Route::post('admin/users/store','AdminUsersController@store');
+    Route::get('/admin/users/edit/{id}','AdminUsersController@edit');
+    Route::patch('/admin/users/update/{id}','AdminUsersController@update');
+    Route::delete('/admin/users/delete/{id}','AdminUsersController@destroy');
+} );
+

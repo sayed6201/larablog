@@ -1,6 +1,7 @@
 {
   "private": true,
   "devDependencies": {
+    "babel-preset-env": "^1.6.1",
     "gulp": "^3.9.1"
   },
   "dependencies": {
