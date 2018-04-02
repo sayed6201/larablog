@@ -36,6 +36,15 @@ Route::group( ['middleware'=>'admin'],function (){
     Route::post('/admin/posts/store','AdminPostsController@store');
     Route::get('/admin/posts/edit/{id}','AdminPostsController@edit');
     Route::delete('/admin/posts/delete/{id}','AdminPostsController@destroy');
+    Route::get('/admin/posts/show/{id}','AdminPostsController@show');
+
+    //catagories routes
+    Route::get('/admin/catagories','AdminCatagoriesController@index');
+    Route::get('/admin/catagories/create','AdminCatagoriesController@create');
+    Route::post('/admin/catagories/store','AdminCatagoriesController@store');
+    Route::get('/admin/catagories/edit/{id}','AdminCatagoriesController@edit');
+    Route::post('/admin/catagories/update/{id}','AdminCatagoriesController@update');
+    Route::delete('/admin/catagories/delete/{id}','AdminCatagoriesController@destroy');
 } );
 
 

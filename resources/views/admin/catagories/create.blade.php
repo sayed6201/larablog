@@ -10,7 +10,7 @@
         </div>
         <div class="col-sm-6">
 
-            {!! Form::model( $catagory, ['method'=>'POST', 'action'=> ['AdminCatagoriesController@update', $catagory->id] ] ) !!}
+            {!! Form::open( ['method'=>'POST', 'action'=> 'AdminCatagoriesController@store'] ) !!}
 
             <div class="form-group">
                 {!! Form::label('name','Name: ') !!}
@@ -19,7 +19,7 @@
 
 
             <div class="form-group">
-                {!! Form::submit('save', ['class'=>'btn btn-primary']) !!}
+                {!! Form::submit('create', ['class'=>'btn btn-primary']) !!}
             </div>
 
             {!! Form::close() !!}

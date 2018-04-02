@@ -42,6 +42,7 @@
                 <div class="form-group">
                     {!! Form::submit('Save Changes', ['class'=>'btn btn-primary']) !!}
                 </div>
+                {!! Form::close() !!}
             </div>
             <div class="col-sm-6">
                 <div class="form-group">

@@ -20,6 +20,7 @@ class CreatePostsTable extends Migration
             $table->integer('photo_id');
             $table->integer('catagory_id');
             $table->timestamps();
+//            $table->foreign('user_id')->refrences('id')->on('users')->onDelete('cascade');
         });
     }
 

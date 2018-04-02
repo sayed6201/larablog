@@ -12,10 +12,9 @@
                     <img height="250" class="card-img-top img-responsive" src="{{$post->photo->name}}" alt="Card image cap">
                     <div class="card-header">{{$post->title}}</div>
                     <div class="card-body">
-                        <p class="card-text">{{$post->content}}</p>
+                        <p class="card-text">{{str_limit($post->content,90)}}</p>
+                        <a href="{{url('/admin/posts/show/'.$post->id)}}" class="">Read full post</a>
                         <p class="text-muted" style="font-style: italic">-Weitten By: {{$post->user->name}}</p>
-                        <a href="{{url('/admin/posts/edit/'.$post->id)}}" class="btn btn-primary">Edit</a>
-
                     </div>
                     <p class="card-footer text-info">CATAGORY:{{$post->catagory->name}}</p>
                 </div>

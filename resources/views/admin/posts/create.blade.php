@@ -27,7 +27,7 @@
             </div>
 
             <div class="form-group">
-                {!! Form::submit('create user', ['class'=>'btn btn-primary']) !!}
+                {!! Form::submit('create post', ['class'=>'btn btn-primary']) !!}
             </div>
 
             {!! Form::close() !!}

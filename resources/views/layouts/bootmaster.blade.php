@@ -65,13 +65,11 @@
                         @if (Auth::guest())
                             <img height="200" src="images/hi.jpg" alt="">
                             @else
-                                <li class="nav-item"><a class="btn btn-primary mb-sm-2" href="{{url('/admin/posts')}}">Post show</a></li>
-                                <li class="nav-item"><a class="btn btn-info" href="{{url('/admin/posts/create')}}">Post Create</a></li>
-                                <li class="nav-item"><a href="">Post Edit</a></li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
+                        <li class="nav-item"><a class="btn btn-primary mb-sm-2" href="{{url('/admin/posts')}}">Post show</a></li>
+                        <li class="nav-item"><a class="btn btn-info mb-sm-2" href="{{url('/admin/posts/create')}}">Post Create</a></li>
+                        <li class="nav-item"><a class="btn btn-danger mb-sm-2" href="/admin/catagories/">Catagories</a></li>
+                        <li class="nav-item"><a class="btn btn-info mb-sm-2" href="{{url('/admin/catagories/create')}}">Create Catagory</a></li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Link</a>
                         </li>
