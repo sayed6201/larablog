@@ -29,5 +29,13 @@ Route::group( ['middleware'=>'admin'],function (){
     Route::get('/admin/users/edit/{id}','AdminUsersController@edit');
     Route::patch('/admin/users/update/{id}','AdminUsersController@update');
     Route::delete('/admin/users/delete/{id}','AdminUsersController@destroy');
+
+    //posts route
+    Route::resource('/admin/posts','AdminPostsController');
+    Route::resource('/admin/posts/create','AdminPostsController@create');
+    Route::post('/admin/posts/store','AdminPostsController@store');
+    Route::get('/admin/posts/edit/{id}','AdminPostsController@edit');
+    Route::delete('/admin/posts/delete/{id}','AdminPostsController@destroy');
 } );
+
 
