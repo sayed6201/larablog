@@ -20,7 +20,7 @@
         </div>
         <div class="col-sm-6">
 
-            {!! Form::model($post, ['method'=>'PATCH', 'action'=> ['AdminPostsController@update', $post->id], 'files'=>true] ) !!}
+            {!! Form::model($post, ['method'=>'PATCH', 'action'=> ['AdminPostsController@Userupdate', $post->id], 'files'=>true] ) !!}
 
             <div class="form-group">
                 {!! Form::label('title','title: ') !!}
@@ -42,19 +42,19 @@
                 {!! Form::file('photo_id', null, ['class'=>'form-control custom-file-input']) !!}
             </div>
             <div class="row">
-            <div class="col-sm-6">
-                <div class="form-group">
-                    {!! Form::submit('Save Changes', ['class'=>'btn btn-primary']) !!}
-                </div>
-                {!! Form::close() !!}
-            </div>
-            <div class="col-sm-6">
-                <div class="form-group">
-                    {!! Form::open( ['method'=>'DELETE', 'action'=> ['AdminPostsController@destroy', $post->id]] ) !!}
-                        {!! Form::submit('Delete', ['class'=>'btn btn-danger']) !!}
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        {!! Form::submit('Save Changes', ['class'=>'btn btn-primary']) !!}
+                    </div>
                     {!! Form::close() !!}
                 </div>
-            </div>
+                <div class="col-sm-6">
+                    {{--<div class="form-group">--}}
+                        {{--{!! Form::open( ['method'=>'DELETE', 'action'=> ['AdminPostsController@destroy', $post->id]] ) !!}--}}
+                        {{--{!! Form::submit('Delete', ['class'=>'btn btn-danger']) !!}--}}
+                        {{--{!! Form::close() !!}--}}
+                    {{--</div>--}}
+                </div>
             </div>
 
 

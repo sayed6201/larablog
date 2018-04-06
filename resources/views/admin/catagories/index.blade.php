@@ -1,5 +1,9 @@
 @extends('layouts.bootmaster')
 
+@section('sidemenu')
+    @include('includes.sidemenu')
+@endsection
+
 @section('content')
     @if(Session::has('deleted_catagory'))
         <div class="bg-danger text_muted">{{Session('deleted_catagory')}}</div>

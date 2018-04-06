@@ -28,7 +28,7 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/admin/users';
+    protected $redirectTo = '/home';
 
     /**
      * Create a new authentication controller instance.
@@ -63,6 +63,13 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
+//        if ($file=$data['photo_id']){
+//            $name=time().$file->getClientOriginalName();
+//            $file->move('images',$name);
+//            $photo=Photo::Create(['name'=>$name]);
+//            $input['photo_id']=$photo->id;
+//        }
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],

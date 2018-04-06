@@ -1,5 +1,14 @@
 @extends('layouts.bootmaster')
 
+@section('sidemenu')
+    @include('includes.sidemenu')
+@endsection
+
+@section('sidemenu')
+    @include('includes.sidemenu')
+@endsection
+
+
 @section('content')
 
     @if(Session::has('deleted_post'))

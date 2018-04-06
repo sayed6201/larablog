@@ -14,6 +14,10 @@ class Photo extends Model
         return $this->hasOne('App\User');
     }
 
+    public function post(){
+        return $this->hasOne('App\Post');
+    }
+
     public function getNameAttribute($photo){
         return $this->path.$photo;
     }

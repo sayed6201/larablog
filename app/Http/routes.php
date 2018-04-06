@@ -23,6 +23,7 @@ Route::auth();
 
 //routes for admin
 Route::group( ['middleware'=>'admin'],function (){
+    //users route
     Route::get('admin/users','AdminUsersController@index');
     Route::get('admin/users/create','AdminUsersController@create');
     Route::post('admin/users/store','AdminUsersController@store');
@@ -46,5 +47,29 @@ Route::group( ['middleware'=>'admin'],function (){
     Route::post('/admin/catagories/update/{id}','AdminCatagoriesController@update');
     Route::delete('/admin/catagories/delete/{id}','AdminCatagoriesController@destroy');
 } );
+
+    Route::get('users/create','AdminUsersController@Usercreate');
+    Route::post('users/store','AdminUsersController@Userstore');
+
+
+Route::group( ['middleware'=>'user'], function(){
+
+    //posts routes
+    Route::get('posts/index','AdminPostsController@Userindex');
+    Route::get('posts/show/{id}','AdminPostsController@Usershow');
+    Route::get('posts/create','AdminPostsController@Usercreate');
+    Route::post('posts/store','AdminPostsController@Userstore');
+    Route::get('posts/edit/{id}','AdminPostsController@Useredit');
+    Route::patch('posts/update/{id}','AdminPostsController@Userupdate');
+    Route::delete('posts/delete/{id}','AdminPostsController@Userdestroy');
+
+    //user routes
+    Route::get('users/index', 'AdminUsersController@Userindex');
+    Route::get('users/show', 'AdminUsersController@Usershow');
+    Route::get('users/edit/{id}', 'AdminUsersController@Useredit');
+    Route::patch('users/update/{id}', 'AdminUsersController@Userupdate');
+
+} );
+
 
 

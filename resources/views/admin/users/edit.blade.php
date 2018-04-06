@@ -1,5 +1,9 @@
 @extends('layouts.bootmaster')
 
+@section('sidemenu')
+    @include('includes.sidemenu')
+@endsection
+
 @section('content')
     <h1 class="text-center">Edit Users</h1>
     <div class="row">

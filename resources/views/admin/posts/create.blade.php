@@ -1,5 +1,9 @@
 @extends('layouts.bootmaster')
 
+@section('sidemenu')
+    @include('includes.sidemenu')
+@endsection
+
 @section('content')
     <h1>Create Post</h1>
 

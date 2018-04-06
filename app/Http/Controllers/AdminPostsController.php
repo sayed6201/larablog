@@ -26,6 +26,13 @@ class AdminPostsController extends Controller
         return view('admin.posts.index',compact('posts'));
     }
 
+    public function Userindex()
+    {
+        //
+        $posts=Post::all();
+        return view('posts.index',compact('posts'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -36,6 +43,13 @@ class AdminPostsController extends Controller
         //
         $catagories=Catagory::lists('name','id')->all();
         return view('admin.posts.create',compact('catagories'));
+    }
+
+    public function Usercreate()
+    {
+        //
+        $catagories=Catagory::lists('name','id')->all();
+        return view('posts.create',compact('catagories'));
     }
 
     /**
@@ -59,6 +73,21 @@ class AdminPostsController extends Controller
         return redirect('admin/posts');
     }
 
+    public function Userstore(PostCreateRequest $request)
+    {
+        //
+        $user=Auth::user();
+        $input=$request->all();
+        if ($file=$request->file('photo_id')){
+            $name=time().$file->getClientOriginalName();
+            $file->move('images',$name);
+            $photo=Photo::Create(['name'=>$name]);
+            $input['photo_id']=$photo->id;
+        }
+        $user->posts()->create($input);
+        return redirect('users/index');
+    }
+
     /**
      * Display the specified resource.
      *
@@ -70,6 +99,13 @@ class AdminPostsController extends Controller
         //
         $post=Post::find($id);
         return view('admin.posts.show',compact('post'));
+    }
+
+    public function Usershow($id)
+    {
+        //
+        $post=Post::find($id);
+        return view('posts.show',compact('post'));
     }
 
     /**
@@ -84,6 +120,16 @@ class AdminPostsController extends Controller
         $catagories=Catagory::lists('name','id')->all();
         $post=Post::find($id);
         return view('admin.posts.edit',compact('catagories','post'));
+
+    }
+
+    public function Useredit($id)
+    {
+        //
+        $catagories=Catagory::lists('name','id')->all();
+        $post=Post::find($id);
+        return view('posts.edit',compact('catagories','post'));
+
 
     }
 
@@ -111,6 +157,23 @@ class AdminPostsController extends Controller
         return redirect('admin/posts');
     }
 
+    public function Userupdate(PostCreateRequest $request, $id)
+    {
+        //
+        $user=Auth::user();
+        $post=Post::find($id);
+        $input=$request->all();
+        if ($file=$request->file('photo_id')){
+            $name=time().$file->getClientOriginalName();
+            $file->move('images',$name);
+            $photo=Photo::Create(['name'=>$name]);
+            $input['photo_id']=$photo->id;
+        }
+        $input['user_id']=$user->id;
+        $post->update($input);
+        return redirect('users/index');
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -129,5 +192,19 @@ class AdminPostsController extends Controller
         $post->delete();
         Session::flash('deleted_post','Post deleted');
         return redirect('admin/posts');
+    }
+
+    public function Userdestroy($id)
+    {
+        //
+        $post=Post::find($id);
+
+        if($post->photo){
+            unlink(public_path().$post->photo->name);
+            $post->photo->delete();
+        }
+        $post->delete();
+        Session::flash('deleted_post','Post deleted');
+        return redirect('users/index');
     }
 }

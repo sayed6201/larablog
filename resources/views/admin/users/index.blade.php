@@ -1,6 +1,10 @@
 @extends('layouts.bootmaster')
 
- @section('content')
+@section('sidemenu')
+    @include('includes.sidemenu')
+@endsection
+
+@section('content')
     @if(Session::has('deleted_user'))
         <div class="bg-danger text_muted">{{Session('deleted_user')}}</div>
     @endif
@@ -37,7 +41,7 @@
                 <td>{{$user->name}}</td>
                 <td>{{$user->email}}</td>
                 <td>{{$user->is_active? 'Yes' : 'No'}}</td>
-                <td>{{$user->role->name}}</td>
+                <td>{{$user->role? $user->role->name : 'subscriber'}}</td>
                 <td>{{$user->photo? $user->photo->name : 'No Photo'}}</td>
                 <td>{{$user->created_at->diffForHumans()}}</td>
                 <td>

@@ -5,16 +5,22 @@
 @endsection
 
 @section('content')
-    <h1>Create Users</h1>
+    <h1 class="text-center">Edit Profile</h1>
     <div class="row">
         <div class="col-sm-6">
-
+            <div class="mt-50">
+                @if($user->photo)
+                    <img height="300" src='{{$user->photo->name}}' alt="">
+                @else
+                    <p class="text-muted">No img</p>
+                @endif
+            </div>
 
 
         </div>
         <div class="col-sm-6">
 
-            {!! Form::open( ['method'=>'POST', 'action'=> 'AdminUsersController@store', 'files'=>true] ) !!}
+            {!! Form::model($user, ['method'=>'PATCH', 'action'=> ['AdminUsersController@Userupdate', $user->id], 'files'=>true] ) !!}
 
             <div class="form-group">
                 {!! Form::label('name','Name: ') !!}
@@ -31,15 +37,15 @@
                 {!! Form::password('password', null, ['class'=>'form-control']) !!}
             </div>
 
-            <div class="form-group col-5">
-                {!! Form::label('is_active','Active: ') !!}
-                {!! Form::select('is_active', ['1'=>'Acive','0'=>'Inactive'], null, ['class'=>'form-control']) !!}
-            </div>
+            {{--<div class="form-group col-5">--}}
+                {{--{!! Form::label('is_active','Active: ') !!}--}}
+                {{--{!! Form::select('is_active', ['1'=>'Acive','0'=>'Inactive'], null, ['class'=>'form-control']) !!}--}}
+            {{--</div>--}}
 
-            <div class="form-group col-5">
-                {!! Form::label('role_id','Active: ') !!}
-                {!! Form::select('role_id', [''=>'Choose Option']+$roles, null, ['class'=>'form-control']) !!}
-            </div>
+            {{--<div class="form-group col-5">--}}
+                {{--{!! Form::label('role_id','Active: ') !!}--}}
+                {{--{!! Form::select('role_id', [''=>'Choose Option']+$roles, null, ['class'=>'form-control']) !!}--}}
+            {{--</div>--}}
 
             <div class="form-group col-5">
                 {!! Form::label('photo_id','Photo: ') !!}
@@ -47,7 +53,7 @@
             </div>
 
             <div class="form-group">
-                {!! Form::submit('create user', ['class'=>'btn btn-primary']) !!}
+                {!! Form::submit('save', ['class'=>'btn btn-primary']) !!}
             </div>
 
             {!! Form::close() !!}

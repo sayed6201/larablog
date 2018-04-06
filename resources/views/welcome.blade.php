@@ -1,5 +1,9 @@
 @extends('layouts.bootmaster')
 
+@section('sidemenu')
+    @include('includes.sidemenu')
+    @endsection
+
 @section('content')
 
 
