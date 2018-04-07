@@ -17,6 +17,7 @@
                 <li class="nav-item"><a class="btn btn-secondary mb-sm-2" href="{{url('users/show')}}">View profile</a></li>
                 <li class="nav-item"><a class="btn btn-secondary mb-sm-2" href="{{url('users/index')}}">Dashboard</a></li>
                 <li class="nav-item"><a class="btn btn-secondary mb-sm-2" href="{{url('posts/create')}}">Create Post</a></li>
+                <li class="nav-item"><a class="btn btn-secondary mb-sm-2" href="{{url('posts/index')}}">View Post</a></li>
 
              @endif
     @endif

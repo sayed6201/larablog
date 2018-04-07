@@ -29,4 +29,6 @@
         </div>
     @endforeach
 
+    <h4 class="mx-sm-auto btn btn-info">{{ $posts->render() }}</h4>
+
 @endsection

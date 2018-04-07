@@ -32,10 +32,10 @@
                 {!! Form::email('email', null, ['class'=>'form-control']) !!}
             </div>
 
-            <div class="form-group">
-                {!! Form::label('password','Password: ') !!}
-                {!! Form::password('password', null, ['class'=>'form-control']) !!}
-            </div>
+            {{--<div class="form-group">--}}
+                {{--{!! Form::label('password','Password: ') !!}--}}
+                {{--{!! Form::password('password', null, ['class'=>'form-control']) !!}--}}
+            {{--</div>--}}
 
             <div class="form-group col-5">
                 {!! Form::label('is_active','Active: ') !!}

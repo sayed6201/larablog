@@ -29,7 +29,7 @@ class AdminPostsController extends Controller
     public function Userindex()
     {
         //
-        $posts=Post::all();
+        $posts=Post::paginate(5);
         return view('posts.index',compact('posts'));
     }
 
@@ -41,14 +41,14 @@ class AdminPostsController extends Controller
     public function create()
     {
         //
-        $catagories=Catagory::lists('name','id')->all();
+        $catagories=Catagory::pluck('name','id')->all();
         return view('admin.posts.create',compact('catagories'));
     }
 
     public function Usercreate()
     {
         //
-        $catagories=Catagory::lists('name','id')->all();
+        $catagories=Catagory::pluck('name','id')->all();
         return view('posts.create',compact('catagories'));
     }
 
@@ -117,7 +117,7 @@ class AdminPostsController extends Controller
     public function edit($id)
     {
         //
-        $catagories=Catagory::lists('name','id')->all();
+        $catagories=Catagory::pluck('name','id')->all();
         $post=Post::find($id);
         return view('admin.posts.edit',compact('catagories','post'));
 
@@ -126,7 +126,7 @@ class AdminPostsController extends Controller
     public function Useredit($id)
     {
         //
-        $catagories=Catagory::lists('name','id')->all();
+        $catagories=Catagory::pluck('name','id')->all();
         $post=Post::find($id);
         return view('posts.edit',compact('catagories','post'));
 
