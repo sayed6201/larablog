@@ -13,8 +13,12 @@
 
 
     @foreach($posts as $post)
-        <div class="card m-3" style="width:75%">
+        <div class="card m-sm-5" style="width:75%">
+            @if(isset($post->photo))
             <img height="250" class="card-img-top img-responsive" src="{{$post->photo->name}}" alt="Card image cap">
+           @else
+                <h5 class="text-center p-sm-2">No Img</h5>
+            @endif
             <div class="card-header">{{$post->title}}</div>
             <div class="card-body">
                 <p class="card-text">{{str_limit($post->content,90)}}</p>

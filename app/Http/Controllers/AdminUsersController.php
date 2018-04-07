@@ -93,9 +93,9 @@ class AdminUsersController extends Controller
             $input['photo_id']=$photo->id;
         }
         $input['password']=bcrypt($input['password']);
-        $input['role']='author';
+        $input['role_id']=2;
         User::create($input);
-        return redirect('users/index');
+        return redirect('/login');
 
     }
 
