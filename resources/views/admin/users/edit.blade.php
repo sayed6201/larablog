@@ -8,9 +8,9 @@
     <h1 class="text-center">Edit Users</h1>
     <div class="row">
         <div class="col-sm-6">
-        <div class="mt-50">
+        <div class="m-50">
             @if($user->photo)
-            <img height="500" src='{{$user->photo->name}}' alt="">
+            <img class="w-100 h-75" src='{{$user->photo->name}}' alt="">
             @else
                 <p class="text-muted">No img</p>
             @endif

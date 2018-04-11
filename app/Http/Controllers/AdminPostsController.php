@@ -43,6 +43,7 @@ class AdminPostsController extends Controller
         //
         $catagories=Catagory::pluck('name','id')->all();
         return view('admin.posts.create',compact('catagories'));
+
     }
 
     public function Usercreate()

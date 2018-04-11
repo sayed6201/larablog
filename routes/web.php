@@ -13,6 +13,8 @@
 
 use App\Photo;
 use App\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
@@ -39,8 +41,8 @@ Route::group( ['middleware'=>'admin'],function (){
     Route::delete('/admin/users/delete/{id}','AdminUsersController@destroy');
 
     //posts route
-    Route::resource('/admin/posts','AdminPostsController');
-    Route::resource('/admin/posts/create','AdminPostsController@create');
+    Route::get('/admin/posts','AdminPostsController@index');
+    Route::get('admin/posts/create','AdminPostsController@create');
     Route::post('/admin/posts/store','AdminPostsController@store');
     Route::get('/admin/posts/edit/{id}','AdminPostsController@edit');
     Route::delete('/admin/posts/delete/{id}','AdminPostsController@destroy');
