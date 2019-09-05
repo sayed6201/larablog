@@ -1,3 +1,13 @@
+PROJECT NAME:  Blog Site (WEB APP),
+All functionalities of a blog is implemented in this project
+USED TECHNOLOGIES:
+Laravel,
+bootstrap,
+JAVASCRIPT,
+Mysql,
+
+
+
 # Laravel PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
